@@ -1,0 +1,13 @@
+syntax = "proto3";
+//  protoc -I ~/go/src/awesomeProject2/proto ~/go/src/awesomeProject2/proto/test.proto --go_out=plugins=grpc:proto
+message CheckAuthResponse {
+    bool isAuth = 1;
+}
+
+message CheckAuthRequest {
+    string session = 1;
+}
+
+service CheckAuthService {
+    rpc CheckAuth(CheckAuthRequest) returns (CheckAuthResponse);
+}
